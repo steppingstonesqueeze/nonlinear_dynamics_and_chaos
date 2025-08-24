@@ -238,7 +238,7 @@ demo_phase <- function(pars=list(gamma=0.2, A=1.2, omega=2/3),
   invisible(list(sim=sim, pmap=pmap))
 }
 
-demo_bifurcation <- function(A_min=0.9, A_max=1.6, nA=120,
+demo_bifurcation <- function(A_min=0.5, A_max=2.6, nA=120,
                              base_pars=list(gamma=0.2, A=1.2, omega=2/3),
                              yvar="theta",
                              compute_lle=TRUE) {
@@ -256,12 +256,12 @@ demo_bifurcation <- function(A_min=0.9, A_max=1.6, nA=120,
   Sys.sleep(5)
   
   # to file 
-  ggsave("chaotic_pendulum_bifurcation_plot.pdf",
+  ggsave("chaotic_pendulum_bifurcation_plot_long.pdf",
          plot = plot_bifurcation(res$bif, yvar = yvar))
   
   if (!is.null(res$lle)) print(plot_lle(res$lle))
   
-  ggsave("chaotic_pendulum_lle_plot.pdf",
+  ggsave("chaotic_pendulum_lle_plot_long.pdf",
          plot = plot_lle(res$lle))
   
   invisible(res)
